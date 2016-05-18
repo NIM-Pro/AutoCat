@@ -2,14 +2,18 @@
 
 const express = require('express')
 const Labels = require('./models/labels')
+const Path = require('path')
 
 var app = express();
 
 app.disable('x-powered-by')
 
-app.use('/public', express.static('./public', {
-  maxAge: '1d'
-}))
+app.use('/public', express.static(
+  Path.resolve(__dirname, '../public'),
+  {
+    maxAge: '1d'
+  }
+))
 
 app.get('/', async function(req, res) {
   try {

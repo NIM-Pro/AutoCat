@@ -15,7 +15,7 @@ let Config = {
         },
         {
           src: Path.join(SrcDir, 'shared', '**/*.js'),
-          dest: Path.join(DestDir, 'shared')
+          dest: Path.join(DestDir, 'public', 'shared')
         }
       ],
       css: [
@@ -25,7 +25,7 @@ let Config = {
         },
         {
           src: Path.join(SrcDir, 'shared', '**/*.css'),
-          dest: Path.join(DestDir, 'shared')
+          dest: Path.join(DestDir, 'public', 'shared')
         }
       ]
     },
@@ -34,6 +34,10 @@ let Config = {
         {
           src: Path.join(SrcDir, 'server', '**/*.js'),
           dest: Path.join(DestDir, 'server')
+        },
+        {
+          src: Path.join(SrcDir, 'shared', '**/*.js'),
+          dest: Path.join(DestDir, 'server', 'shared')
         },
         {
           src: Path.join(SrcDir, 'modules', '**/*.js'),
@@ -46,6 +50,10 @@ let Config = {
     {
       src: Path.join(SrcDir, 'public', 'img', '**/*'),
       dest: Path.join(DestDir, 'public', 'img')
+    },
+    {
+      src: Path.join(SrcDir, 'public', '**/*.html'),
+      dest: Path.join(DestDir, 'public')
     }
   ]
 }
