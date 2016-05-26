@@ -10,13 +10,15 @@ let Config = {
     client: {
       js: [
         {
-          src: Path.join(SrcDir, 'public', '**/*.js'),
-          dest: Path.join(DestDir, 'public')
-        },
-        {
-          src: Path.join(SrcDir, 'shared', '**/*.js'),
-          dest: Path.join(DestDir, 'public', 'shared')
+          src: Path.join(SrcDir, 'public', 'js', 'init.js'),
+          filename: 'init.js',
+          dest: Path.join(DestDir, 'public', 'js', 'init.js')
         }
+        // ,
+        // {
+        //   src: Path.join(SrcDir, 'shared', '**/*.js'),
+        //   dest: Path.join(DestDir, 'public', 'shared')
+        // }
       ],
       css: [
         {

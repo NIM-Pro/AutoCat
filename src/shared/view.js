@@ -2,18 +2,16 @@
 
 const React = require('react')
 const {Provider} = require('react-redux')
-const {Router, browserHistory} = require('react-router')
-const createStore = () => null
+const {Router, RouterContext} = require('react-router')
+const createStore = require('./store')
 
-const routes = null
-
-module.exports = function(state) {
+module.exports = function(props, state) {
   let store
-  if (arguments.length > 0)
+  if (arguments.length > 1)
     store = createStore(state)
   else
     store = createStore()
   return <Provider store={store}>
-    <Router history={browserHistory} routes={routes}/>
+    <RouterContext {...props}/>
   </Provider>
 }

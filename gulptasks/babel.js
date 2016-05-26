@@ -2,19 +2,25 @@
 
 const Gulp = require('gulp')
 const Babel = require('gulp-babel')
+const Browserify = require('gulp-browserify')
 const Merge = require('merge2')
 
 const Config = require('../config.js')
 
-Gulp.task('babel', ['babel:client', 'babel:server'])
+Gulp.task('babel', [
+  // 'babel:client',
+  'babel:server'
+])
 
-function doIt(babelConfig, pathsConfig) {
+function doIt(babelConfig, pathsConfig, addiction) {
   return Merge.apply(
     null,
     pathsConfig.map(obj => {
-      return Gulp.src(obj.src)
+      let r = Gulp.src(obj.src)
       .pipe(Babel(babelConfig))
-      .pipe(Gulp.dest(obj.dest))
+      // if (addiction)
+      //   r = r.pipe(addiction)
+      return r.pipe(Gulp.dest(obj.dest))
     })
   )
 }
